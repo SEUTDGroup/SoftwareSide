@@ -14,7 +14,7 @@ public class AccountInfoController {
     //AccountInfoController Constructor
     public AccountInfoController()
     {
-        //Get DatabaseManger singleton instance
+        //Get DatabaseManager singleton instance
         dbManager = DatabaseManager.getDBManager();
     }
 

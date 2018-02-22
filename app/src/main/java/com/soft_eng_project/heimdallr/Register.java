@@ -7,7 +7,7 @@ import android.os.Bundle;
  * Created by Yadiel on 2/2/2018.
  */
 
-public class SignUp extends Activity
+public class Register extends Activity
 {
     protected void onCreate(Bundle savedInstanceState)
     {

@@ -8,6 +8,7 @@ public class DatabaseManager {
 
     private static DatabaseManager dbManager;
 
+    //Default DatabaseManager constructor
     private DatabaseManager(){}
 
     //Get DatabaseManger at runtime
@@ -43,6 +44,14 @@ public class DatabaseManager {
     public void updateUser(User user)
     {
         //do stuff with database
+    }
+
+    //Checks if a username already exists in the database
+    public boolean availableUser(String userName)
+    {
+        if(getUser(userName) != null)
+            return false;
+        return true;
     }
 
 }

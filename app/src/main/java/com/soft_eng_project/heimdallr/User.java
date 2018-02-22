@@ -25,6 +25,14 @@ public class User {
         this.email = email;
     }
 
+    //Verify if password belongs to User
+    public boolean verifyPassword(String password)
+    {
+        if(getPassword().equals(password))
+            return true;
+        return false;
+    }
+
     //Updates user information
     public void updateInfo(String firstName, String lastName, String password, String email)
     {
