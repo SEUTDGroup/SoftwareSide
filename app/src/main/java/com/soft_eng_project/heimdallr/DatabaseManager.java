@@ -49,9 +49,7 @@ public class DatabaseManager {
     //Checks if a username already exists in the database
     public boolean availableUser(String userName)
     {
-        if(getUser(userName) != null)
-            return false;
-        return true;
+        return getUser(userName) == null;
     }
 
 }

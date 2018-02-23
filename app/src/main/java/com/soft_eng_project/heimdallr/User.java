@@ -28,9 +28,7 @@ public class User {
     //Verify if password belongs to User
     public boolean verifyPassword(String password)
     {
-        if(getPassword().equals(password))
-            return true;
-        return false;
+        return getPassword().equals(password);
     }
 
     //Updates user information

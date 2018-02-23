@@ -31,9 +31,7 @@ public class RegistrationController {
     public boolean submit(String firstName, String lastName, String userName, String password, String email)
     {
         User user = new User(firstName, lastName, userName, password, email);
-        if(verifyCredentials(user))
-            return true;
-        return false;
+        return verifyCredentials(user);
     }
 
 }

@@ -19,7 +19,7 @@ public class RegisterActivity extends Activity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        getActionBar().setTitle(R.string.Register_Title);
+        //getActionBar().setTitle(R.string.Register_Title);
         setContentView(R.layout.activity_register);
 
         Button submit_button = findViewById(R.id.RegisterButton);
@@ -40,9 +40,19 @@ public class RegisterActivity extends Activity
         EditText repasswordText = findViewById(R.id.RegisterRePasswordText);
         EditText emailText = findViewById(R.id.RegisterEmailText);
 
-        if(passwordText.getText().toString().equals(repasswordText.getText().toString()))
+        if(userNameText.getText().toString().equals("SEGROUP"))
         {
-
+            Snackbar.make(v, "Error: Account already exists, please log in", Snackbar.LENGTH_SHORT)
+                    .setAction("Action", null)
+                    .show();
+        }
+        else if(passwordText.getText().toString().equals(repasswordText.getText().toString()))
+        {
+            //For Debugging and Demo
+            Intent launchGallery = new Intent(this, GalleryActivity.class);
+            launchGallery.putExtra("Login Successful", "Message");
+            startActivity(launchGallery);
+            /*
             if(register.submit(
                     "",
                     "",
@@ -54,14 +64,14 @@ public class RegisterActivity extends Activity
                 Intent launchGallery = new Intent(this, GalleryActivity.class);
                 launchGallery.putExtra("Login Successful", "Message");
                 startActivity(launchGallery);
-            }
+            }*/
+        }else {
+
+            //If the login is unsuccessful display a snackbar message
+            Snackbar.make(v, "Error: Password fields do not match", Snackbar.LENGTH_SHORT)
+                    .setAction("Action", null)
+                    .show();
         }
-
-        //If the login is unsuccessful display a snackbar message
-        Snackbar.make(v, "Error: Account already exists, please log in", Snackbar.LENGTH_SHORT)
-                .setAction("Action", null)
-                .show();
-
     }
 
     protected void onStart()

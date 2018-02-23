@@ -19,9 +19,7 @@ public class LoginController {
     public boolean submit(String userName, String password)
     {
         User user = dbManager.getUser(userName);
-        if(user != null && user.verifyPassword(password))
-            return true;
-        return false;
+        return user != null && user.verifyPassword(password);
     }
 
 }

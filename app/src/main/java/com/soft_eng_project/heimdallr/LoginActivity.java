@@ -19,19 +19,22 @@ public class LoginActivity extends Activity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        getActionBar().setTitle(R.string.Login_Title);
+      //  getActionBar().setTitle(R.string.Login_Title);
         setContentView(R.layout.activity_login);
+
+        login = new LoginController();
 
         Button submit_button = findViewById(R.id.loginSubmitButton);
         submit_button.setOnClickListener(new View.OnClickListener()
         {
+            @Override
             public void onClick(View v)
             {
                 submitInfo(v);
             }
         });
 
-        TextView register = findViewById(R.id.RegisterTextClickable);
+        TextView register = findViewById(R.id.LoginRegisterClickableText);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,8 +56,14 @@ public class LoginActivity extends Activity
         //Attempt to login to account
         EditText userNameText = findViewById(R.id.loginUsernameText);
         EditText passwordText = findViewById(R.id.loginPasswordText);
-        boolean logged_in = login.submit(userNameText.getText().toString(),
-                                        passwordText.getText().toString());
+
+        //For Debugging and Demo
+        boolean logged_in = false;
+        if(userNameText.getText().toString().equals("SEGROUP") && passwordText.getText().toString().equals("12345"))
+            logged_in = true;
+
+       /* boolean logged_in = login.submit(userNameText.getText().toString(),
+                                        passwordText.getText().toString()); */
 
         //If loging is sucessful transition to GalleryActivity
         if(logged_in)
