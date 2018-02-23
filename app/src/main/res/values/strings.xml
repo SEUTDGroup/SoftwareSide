@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Heimdallr</string>
+    <string name="Login_Title">Login</string>
+    <string name="Register_Title">Register</string>
 </resources>

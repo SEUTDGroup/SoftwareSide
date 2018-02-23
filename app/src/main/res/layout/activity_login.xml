@@ -1,46 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/loginPasswordText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="1dp"
         android:ems="10"
         android:inputType="textPassword"
         android:text="Password"
         android:textAlignment="center"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="198dp" />
+        app:layout_constraintBottom_toTopOf="@+id/loginSubmitButton"
+        app:layout_constraintEnd_toEndOf="@+id/loginSubmitButton"
+        app:layout_constraintTop_toBottomOf="@+id/loginUsernameText" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/loginUsernameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="37dp"
+        android:layout_marginTop="115dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Username"
         android:textAlignment="center"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="115dp" />
+        app:layout_constraintBottom_toTopOf="@+id/loginPasswordText"
+        app:layout_constraintStart_toStartOf="@+id/loginPasswordText"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:id="@+id/loginSubmitButton"
+        android:layout_width="218dp"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="210dp"
-        tools:layout_editor_absoluteY="276dp" />
+        android:layout_marginBottom="24dp"
+        android:text="Submit"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/RegisterTextClickable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginPasswordText" />
 
-    <Button
-        android:id="@+id/button2"
-        style="@style/Widget.AppCompat.Button.Small"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="252dp"
-        tools:layout_editor_absoluteY="16dp" />
+    <TextView
+        android:id="@+id/RegisterTextClickable"
+        android:layout_width="68dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="174dp"
+        android:text="Register"
+        android:textSize="18sp"
+        android:visibility="visible"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/loginSubmitButton"
+        app:layout_constraintStart_toStartOf="@+id/loginSubmitButton"
+        app:layout_constraintTop_toBottomOf="@+id/loginSubmitButton" />
+
 </android.support.constraint.ConstraintLayout>

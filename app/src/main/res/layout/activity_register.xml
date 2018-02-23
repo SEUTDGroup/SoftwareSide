@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/RegisterUsernameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Username"
+        app:layout_constraintStart_toStartOf="@+id/RegisterUsernameTextTitle"
+        app:layout_constraintTop_toBottomOf="@+id/RegisterUsernameTextTitle" />
+
+    <EditText
+        android:id="@+id/RegisterPasswordText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:contentDescription="Password"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:text="Password"
+        app:layout_constraintStart_toStartOf="@+id/RegisterRePasswordTextTitle"
+        app:layout_constraintTop_toBottomOf="@+id/RegisterUsernameText" />
+
+    <EditText
+        android:id="@+id/RegisterRePasswordText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="Password"
+        app:layout_constraintStart_toStartOf="@+id/RegisterEmailTextTitle"
+        app:layout_constraintTop_toBottomOf="@+id/RegisterPasswordText" />
+
+    <EditText
+        android:id="@+id/RegisterEmailText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="sample@email.com"
+        app:layout_constraintTop_toBottomOf="@+id/RegisterEmailTextTitle"
+        tools:layout_editor_absoluteX="85dp" />
+
+    <Button
+        android:id="@+id/RegisterButton"
+        android:layout_width="127dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="116dp"
+        android:layout_marginEnd="128dp"
+        android:clickable="true"
+        android:text="Register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/RegisterUsernameTextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="32dp"
+        android:text="Enter Username"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/RegisterPasswordTextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Password"
+        app:layout_constraintBottom_toTopOf="@+id/RegisterPasswordText"
+        app:layout_constraintStart_toStartOf="@+id/RegisterPasswordText" />
+
+    <TextView
+        android:id="@+id/RegisterRePasswordTextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Re-Enter Password"
+        app:layout_constraintBottom_toTopOf="@+id/RegisterRePasswordText"
+        app:layout_constraintStart_toStartOf="@+id/RegisterRePasswordText" />
+
+    <TextView
+        android:id="@+id/RegisterEmailTextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="21dp"
+        android:layout_marginTop="60dp"
+        android:text="Enter Email"
+        app:layout_constraintStart_toStartOf="@+id/RegisterEmailText"
+        app:layout_constraintTop_toTopOf="@+id/RegisterRePasswordText" />
+
+</android.support.constraint.ConstraintLayout>

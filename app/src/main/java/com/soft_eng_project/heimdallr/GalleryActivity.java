@@ -4,11 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 
 /**
- * Created by Yadiel on 2/2/2018.
+ * Created by Yadiel on 2/22/2018.
  */
 
-public class Register extends Activity
-{
+public class GalleryActivity extends Activity{
+
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
@@ -38,5 +38,4 @@ public class Register extends Activity
     {
         super.onDestroy();
     }
-
 }
