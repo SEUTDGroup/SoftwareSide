@@ -14,7 +14,7 @@ import android.widget.*;
 public class LoginActivity extends Activity
 {
 
-    private LoginController login;
+    private DatabaseManager dbManager = DatabaseManager.getDBManager();
 
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -22,7 +22,6 @@ public class LoginActivity extends Activity
       //  getActionBar().setTitle(R.string.Login_Title);
         setContentView(R.layout.activity_login);
 
-        login = new LoginController();
 
         Button submit_button = findViewById(R.id.loginSubmitButton);
         submit_button.setOnClickListener(new View.OnClickListener()
@@ -78,6 +77,13 @@ public class LoginActivity extends Activity
                 .setAction("Action", null)
                 .show();
 
+    }
+
+    //Returns true if password verification succeeded and false otherwise
+    public boolean submit(String userName, String password)
+    {
+        User user = dbManager.getUser(userName);
+        return user != null && user.verifyPassword(password);
     }
 
     protected void onStart()

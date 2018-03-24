@@ -14,13 +14,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class LivestreamActivity extends AppCompatActivity
+import java.util.Date;
+
+public class ProfileActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private static Date currentTime;
+    private DatabaseManager dbManager = DatabaseManager.getDBManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_livestream);
+        setContentView(R.layout.activity_profile);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -56,7 +61,7 @@ public class LivestreamActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.livestream, menu);
+        getMenuInflater().inflate(R.menu.profile, menu);
         return true;
     }
 
@@ -108,18 +113,29 @@ public class LivestreamActivity extends AppCompatActivity
         return true;
     }
 
-    public void selectCamera(String cameraID)
-    {
 
+
+
+
+    //Creates new User object and saves it in database
+    public void createUser(String firstName, String lastName, String userName, String password, String email)
+    {
+        dbManager.saveUser(new User(firstName, lastName, userName, password, email));
     }
 
-    public void stopStream(String cameraID)
+    //Updates user information in database
+    public void updateInfo(String firstName, String lastName, String userName, String password, String email)
     {
-
+        User user = dbManager.getUser(userName);
+        user.updateInfo(firstName, lastName, password, email);
+        dbManager.updateUser(user);
     }
 
-    public void takeScreenShot(String cameraID)
-    {
+    public void updateTime() {}
 
+    //Returns the number of milliseconds since January 1, 1970, 00:00:00 GMT
+    public long getCurrentTime()
+    {
+        return currentTime.getTime();
     }
 }

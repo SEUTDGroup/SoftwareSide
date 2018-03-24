@@ -14,7 +14,7 @@ import android.widget.EditText;
 
 public class RegisterActivity extends Activity
 {
-    private RegistrationController register;
+    private DatabaseManager dbManager = DatabaseManager.getDBManager();
 
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -52,8 +52,9 @@ public class RegisterActivity extends Activity
             Intent launchGallery = new Intent(this, GalleryActivity.class);
             launchGallery.putExtra("Login Successful", "Message");
             startActivity(launchGallery);
+
             /*
-            if(register.submit(
+            if(submit(
                     "",
                     "",
                     userNameText.getText().toString(),
@@ -64,7 +65,8 @@ public class RegisterActivity extends Activity
                 Intent launchGallery = new Intent(this, GalleryActivity.class);
                 launchGallery.putExtra("Login Successful", "Message");
                 startActivity(launchGallery);
-            }*/
+            }
+           */
         }else {
 
             //If the login is unsuccessful display a snackbar message
@@ -72,6 +74,26 @@ public class RegisterActivity extends Activity
                     .setAction("Action", null)
                     .show();
         }
+    }
+
+
+    //Verifies the new User information
+    public boolean verifyCredentials(User user)
+    {
+        if(dbManager.availableUser(user.getUserName()))
+        {
+            //Add more input validation here for password and email
+            dbManager.saveUser(user);
+            return true;
+        }
+        return false;
+    }
+
+    //Returns true if new User information is valid
+    public boolean submit(String firstName, String lastName, String userName, String password, String email)
+    {
+        User user = new User(firstName, lastName, userName, password, email);
+        return verifyCredentials(user);
     }
 
     protected void onStart()

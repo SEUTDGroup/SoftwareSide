@@ -3,4 +3,14 @@
     <string name="Login_Title">Login</string>
     <string name="Register_Title">Register</string>
     <string name="Livestream_Title">Livestream</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_gallery">GalleryActivity</string>
+    <string name="title_activity_livestream">LivestreamActivity</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
 </resources>
