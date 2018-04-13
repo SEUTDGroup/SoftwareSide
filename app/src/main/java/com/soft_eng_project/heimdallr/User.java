@@ -32,10 +32,11 @@ public class User {
     }
 
     //Updates user information
-    public void updateInfo(String firstName, String lastName, String password, String email)
+    public void updateInfo(String firstName, String lastName, String userName, String password, String email)
     {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.userName = userName;
         this.password  = password;
         this.email = email;
     }

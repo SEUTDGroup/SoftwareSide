@@ -9,8 +9,8 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string name="title_activity_gallery">GalleryActivity</string>
-    <string name="title_activity_livestream">LivestreamActivity</string>
-    <string name="title_activity_profile">ProfileActivity</string>
-    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_gallery">Gallery</string>
+    <string name="title_activity_livestream">Livestream</string>
+    <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_settings">Settings</string>
 </resources>

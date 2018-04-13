@@ -5,7 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.view.View;
-import android.widget.*;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by Yadiel on 2/2/2018.
@@ -14,7 +19,7 @@ import android.widget.*;
 public class LoginActivity extends Activity
 {
 
-    private DatabaseManager dbManager = DatabaseManager.getDBManager();
+    private DatabaseManager dbManager;
 
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -40,6 +45,8 @@ public class LoginActivity extends Activity
                 registerNewAccount();
             }
         });
+
+        dbManager = DatabaseManager.getDBManager(this);
     }
 
     protected void registerNewAccount()
@@ -55,16 +62,43 @@ public class LoginActivity extends Activity
         //Attempt to login to account
         EditText userNameText = findViewById(R.id.loginUsernameText);
         EditText passwordText = findViewById(R.id.loginPasswordText);
+        User u;
 
         //For Debugging and Demo
         boolean logged_in = false;
+
+        for(int i = 0; i < dbManager.userArray.length(); i++)
+        {
+            try
+            {
+                JSONObject user = dbManager.userArray.getJSONObject(i);
+                if (userNameText.getText().toString().equals(user.getString("username")) && passwordText.getText().toString().equals(user.getString("password")))
+                {
+                    logged_in = true;
+                    u = new User(user.getString("first name"), user.getString("last name"), user.getString("username"), user.getString("password"), user.getString("email"));
+                    dbManager.saveUser(u);
+                    dbManager.objectIndex = i;
+                    break;
+                }
+            }
+            catch (JSONException e)
+            {
+
+            }
+        }
+
+
+
+/*
         if(userNameText.getText().toString().equals("SEGROUP") && passwordText.getText().toString().equals("12345"))
             logged_in = true;
+*/
+
 
        /* boolean logged_in = login.submit(userNameText.getText().toString(),
                                         passwordText.getText().toString()); */
 
-        //If loging is sucessful transition to GalleryActivity
+        //If logging is sucessful transition to GalleryActivity
         if(logged_in)
         {
             Intent launchGallery = new Intent(this, GalleryActivity.class);
@@ -80,9 +114,9 @@ public class LoginActivity extends Activity
     }
 
     //Returns true if password verification succeeded and false otherwise
-    public boolean submit(String userName, String password)
+    public boolean submit(String firstName, String lastName, String userName, String password, String email)
     {
-        User user = dbManager.getUser(userName);
+        User user = dbManager.getUser();
         return user != null && user.verifyPassword(password);
     }
 

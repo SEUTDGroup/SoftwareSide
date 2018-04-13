@@ -8,4 +8,9 @@
     tools:context="com.soft_eng_project.heimdallr.GalleryActivity"
     tools:showIn="@layout/app_bar_gallery">
 
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="395dp"
+        android:layout_height="587dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp" />
 </android.support.constraint.ConstraintLayout>
