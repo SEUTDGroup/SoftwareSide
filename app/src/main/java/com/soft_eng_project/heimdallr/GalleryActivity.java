@@ -2,9 +2,7 @@ package com.soft_eng_project.heimdallr;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,9 +11,19 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 
 public class GalleryActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener
+{
+    private DatabaseManager dbManager;
+    ImageButton imageButton1;
+    ImageButton imageButton2;
+    ImageButton imageButton3;
+    ImageButton imageButton4;
+    ImageButton imageButton5;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +32,6 @@ public class GalleryActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -41,6 +41,16 @@ public class GalleryActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        dbManager = DatabaseManager.getDBManager(this);
+
+        imageButton1 = findViewById(R.id.imageButton1);
+        imageButton2 = findViewById(R.id.imageButton2);
+        imageButton3 = findViewById(R.id.imageButton3);
+        imageButton4 = findViewById(R.id.imageButton4);
+        imageButton5 = findViewById(R.id.imageButton5);
+
+
     }
 
     @Override
@@ -102,10 +112,47 @@ public class GalleryActivity extends AppCompatActivity
             Intent newActivity = new Intent(this, SettingsActivity.class);
             startActivity(newActivity);
         }
+        else if (id == R.id.nav_logOff)
+        {
+            Intent newActivity = new Intent(this, LoginActivity.class);
+            startActivity(newActivity);
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void onClick(View view)
+    {
+        Intent newActivity = new Intent(this, PictureActivity.class);
+        switch(view.getId())
+        {
+            case R.id.imageButton1:
+                dbManager.currentImage = imageButton1;
+                break;
+
+            case R.id.imageButton2:
+                dbManager.currentImage = imageButton2;
+                break;
+
+            case R.id.imageButton3:
+
+                dbManager.currentImage = imageButton3;
+                break;
+
+            case R.id.imageButton4:
+                dbManager.currentImage = imageButton4;
+                break;
+
+            case R.id.imageButton5:
+                dbManager.currentImage = imageButton5;
+                break;
+
+            default:
+                break;
+        }
+        startActivity(newActivity);
     }
 }
 

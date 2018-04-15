@@ -3,6 +3,7 @@ package com.soft_eng_project.heimdallr;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.widget.ImageButton;
 
 import org.json.JSONArray;
 
@@ -17,6 +18,7 @@ public class DatabaseManager {
     public SharedPreferences userFile;
     public JSONArray userArray;
     public int objectIndex;
+    public ImageButton currentImage;
 
 
 

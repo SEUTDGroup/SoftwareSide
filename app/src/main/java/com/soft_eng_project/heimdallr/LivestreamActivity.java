@@ -102,6 +102,11 @@ public class LivestreamActivity extends AppCompatActivity
             Intent newActivity = new Intent(this, SettingsActivity.class);
             startActivity(newActivity);
         }
+        else if (id == R.id.nav_logOff)
+        {
+            Intent newActivity = new Intent(this, LoginActivity.class);
+            startActivity(newActivity);
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

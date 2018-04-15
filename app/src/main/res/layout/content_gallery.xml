@@ -8,9 +8,57 @@
     tools:context="com.soft_eng_project.heimdallr.GalleryActivity"
     tools:showIn="@layout/app_bar_gallery">
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="395dp"
-        android:layout_height="587dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp" />
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="202dp"
+        android:layout_height="175dp"
+        android:onClick="onClick"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/landscape1" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="203dp"
+        android:layout_height="175dp"
+        android:layout_marginBottom="432dp"
+        android:layout_marginStart="8dp"
+        android:onClick="onClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageButton1"
+        app:srcCompat="@drawable/landscape2" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="202dp"
+        android:layout_height="165dp"
+        android:onClick="onClick"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/landscape3" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="205dp"
+        android:layout_height="175dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="208dp"
+        android:onClick="onClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/landscape4" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="202dp"
+        android:layout_height="174dp"
+        android:layout_marginBottom="100dp"
+        android:onClick="onClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/landscape5" />
+
 </android.support.constraint.ConstraintLayout>

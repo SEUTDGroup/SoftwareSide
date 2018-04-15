@@ -67,6 +67,7 @@ public class ProfileActivity extends AppCompatActivity
             }
         });
 
+
     }
 
     @Override
@@ -126,6 +127,11 @@ public class ProfileActivity extends AppCompatActivity
         else if (id == R.id.nav_settings)
         {
             Intent newActivity = new Intent(this, SettingsActivity.class);
+            startActivity(newActivity);
+        }
+        else if (id == R.id.nav_logOff)
+        {
+            Intent newActivity = new Intent(this, LoginActivity.class);
             startActivity(newActivity);
         }
 

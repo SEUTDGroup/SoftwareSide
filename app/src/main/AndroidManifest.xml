@@ -21,27 +21,38 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/Login_Title"
+            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".RegisterActivity"
             android:label="@string/Register_Title"
+            android:screenOrientation="portrait"
             android:parentActivityName=".LoginActivity" />
         <activity
             android:name=".GalleryActivity"
             android:label="@string/title_activity_gallery"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LivestreamActivity"
             android:label="@string/title_activity_livestream"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ProfileActivity"
             android:label="@string/title_activity_profile"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PictureActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
     </application>
 
 </manifest>
